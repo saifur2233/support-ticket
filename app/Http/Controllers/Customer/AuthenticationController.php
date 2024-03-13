@@ -13,8 +13,8 @@ class AuthenticationController extends Controller
         if(Auth::guard('customer')->attempt(['email' => $request->email, 'password' => $request->password, 'user_type' => 2]))
         {
             $request->session()->regenerate();
- 
-            return redirect()->intended('customer-dashboard');
+
+            return redirect()->intended('customer/dashboard');
         }
 
         return back();
@@ -23,11 +23,11 @@ class AuthenticationController extends Controller
     public function logout(Request $request)
     {
         Auth::guard('customer')->logout();
-    
+
         $request->session()->invalidate();
-    
+
         $request->session()->regenerateToken();
-    
+
         return redirect()->route('customer-login');
     }
 }

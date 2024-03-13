@@ -14,6 +14,9 @@
         <li>
             <a href="{{ route('customer-login') }}">Customer Login</a>
         </li>
+        <li>
+            <a href="{{ route('admin-login') }}">Admin Login</a>
+        </li>
     </ul>
 </body>
 </html>

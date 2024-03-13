@@ -32,6 +32,11 @@ class RedirectIfAuthenticated
             return redirect()->route('customer-dashboard');
         }
 
+        if(Auth::guard('admin')->check())
+        {
+            return redirect()->route('admin-dashboard');
+        }
+
         return $next($request);
     }
 }

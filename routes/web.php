@@ -38,3 +38,18 @@ Route::group(['prefix' => 'customer', 'as' => 'customer-', 'namespace' => 'App\H
     });
 
 });
+
+Route::group(['prefix' => 'admin', 'as' => 'admin-', 'namespace' => 'App\Http\Controllers\Admin'], function() {
+
+    Route::view('login', 'admin.login')->name('login')->middleware('guest');
+
+    Route::post('authenticate', 'AuthenticationController@authenticate')->name('authenticate');
+
+    Route::group(['middleware' => ['auth:admin']], function() {
+
+        Route::view('dashboard', 'admin.dashboard')->name('dashboard');
+
+        Route::post('logout', 'AuthenticationController@logout')->name('logout');
+
+    });
+});
