@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('my-menu', 'menu');
+Route::view('my-menu', 'menu')->name('my-menu');
 
 Route::group(['prefix' => 'customer', 'as' => 'customer-', 'namespace' => 'App\Http\Controllers\Customer'], function() {
 
