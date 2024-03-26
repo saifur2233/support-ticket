@@ -6,7 +6,7 @@
     <title>Customer Dashboard</title>
 </head>
 <body>
-    <h1>Customer Dashboard</h1>
+    <h1>Welcome to Customer Dashboard</h1>
 
     <form action="{{ route('customer-logout') }}" method="post">
         @csrf
